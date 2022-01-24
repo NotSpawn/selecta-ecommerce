@@ -2,7 +2,7 @@
 
 #General Info
 
-front-end: Reactjs, react-bootstrap, font awesome
+front-end: Reactjs,
 
 ## Future Features
 
