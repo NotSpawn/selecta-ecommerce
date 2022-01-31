@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import "./Navbar.css";
+import CartWidget from "../CartWidget";
 
 export default class Navbar extends Component {
   state = { clicked: false };
@@ -32,7 +33,7 @@ export default class Navbar extends Component {
             );
           })}
         </ul>
-        <i className="fa fa-shopping-cart"></i>
+        <CartWidget />
         <Button>Sign Up</Button>
       </nav>
     );
