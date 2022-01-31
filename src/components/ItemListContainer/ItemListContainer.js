@@ -2,11 +2,11 @@ import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemListContainer.css";
 
-const ItemlistContainer = () => {
+function ItemListContainer({ greeting }) {
   return (
     <section>
       <div className="intro-logo">
-        <h3>Treat Yourself</h3>
+        <h3>{greeting}</h3>
         <img src="" className="" alt="" />
         <div className="intro-button">
           <span> SHOP NOW</span>
@@ -17,6 +17,6 @@ const ItemlistContainer = () => {
       </div>
     </section>
   );
-};
+}
 
-export default ItemlistContainer;
+export default ItemListContainer;

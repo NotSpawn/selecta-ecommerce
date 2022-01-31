@@ -16,7 +16,7 @@ function App() {
           duration={5}
           transition={2}
         />
-        <ItemlistContainer />
+        <ItemlistContainer greeting={"Treat Yourself"} />
       </header>
       <main></main>
     </div>
