@@ -5,6 +5,7 @@ import BackgroundSlider from "react-background-slider";
 import image1 from "./assets/images/slide-2.jpg";
 import image2 from "./assets/images/slide-1.jpg";
 import ItemlistContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
@@ -16,9 +17,11 @@ function App() {
           duration={5}
           transition={2}
         />
-        <ItemlistContainer greeting={"Treat Yourself"} />
       </header>
-      <main></main>
+      <main>
+        <ItemlistContainer greeting={"Treat Yourself"} />
+        <ItemDetailContainer />
+      </main>
     </div>
   );
 }

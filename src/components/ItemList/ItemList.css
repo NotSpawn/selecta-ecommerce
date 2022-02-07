@@ -1,0 +1,15 @@
+.item-title-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  padding-top: 90px;
+}
+
+.item-list {
+  padding-top: 290px;
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: bold;
+}
