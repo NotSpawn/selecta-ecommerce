@@ -8,6 +8,7 @@ import ItemlistContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             path="/category/:categoryName"
             element={<ItemlistContainer />}
           />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
     </div>

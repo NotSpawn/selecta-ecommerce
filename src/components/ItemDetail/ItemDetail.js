@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ product }) {
+  const [itemTotal, setItemTotal] = useState();
+
+  function onAddItem(newItemCount) {
+    setItemTotal(newItemCount);
+  }
+
   return (
     <div className="container card">
       <div className="card_left">
@@ -20,7 +27,13 @@ function ItemDetail({ product }) {
           <span className="price">{product.price} $</span>
         </div>
         <div>
-          <ItemCount stock={10} initial={1} />
+          {!itemTotal ? (
+            <ItemCount stock={10} initial={1} onAdd={onAddItem} />
+          ) : (
+            <Link to="/cart">
+              <button className="addTo"> Go to Cart</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

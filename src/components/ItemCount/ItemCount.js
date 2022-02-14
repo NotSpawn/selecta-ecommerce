@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ItemCount.css";
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, onAdd }) {
   const [counter, setCounter] = useState(initial);
   const [error, setError] = useState(false);
 
@@ -14,7 +14,9 @@ function ItemCount({ stock, initial }) {
     setCounter(counter - 1);
   };
 
-  const onAdd = () => {};
+  const AddtoCart = () => {
+    onAdd(counter);
+  };
 
   useEffect(() => {
     if (counter === stock) setError(true);
@@ -37,7 +39,7 @@ function ItemCount({ stock, initial }) {
           disabled={error}
         ></button>
       </div>
-      <button className="addTo" onClick={onAdd}>
+      <button className="addTo" onClick={AddtoCart}>
         Add to cart
       </button>
     </div>
