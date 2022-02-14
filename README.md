@@ -2,7 +2,7 @@
 
 #General Info
 
-front-end: Reactjs,
+front-end: Reactjs, react-background-slider,react-navbar-dropdown,react-router-dom.
 
 ## Future Features
 
@@ -10,3 +10,5 @@ front-end: Reactjs,
 - Detail products
 - Cart
 - Login / Register
+
+Imagenes sacadas del sitio www.benka.com.ar

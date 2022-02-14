@@ -8,6 +8,16 @@
   left: 0;
 }
 
+li a.active {
+  font-weight: bold;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: #6568f4;
+}
+.NavbarItems a {
+  text-decoration: none;
+}
+
 .navbar-logo {
   color: #fff;
   justify-self: start;
@@ -29,7 +39,6 @@
   text-align: center;
   width: 55vw;
   justify-content: end;
-  margin-right: 2rem;
 }
 
 .fa-shopping-cart {
@@ -42,7 +51,7 @@
 .nav-links {
   color: #fff;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .nav-links:hover {

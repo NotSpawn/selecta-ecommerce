@@ -3,6 +3,8 @@ import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import "./Navbar.css";
 import CartWidget from "../CartWidget";
+import { Link, NavLink } from "react-router-dom";
+import DropdownMenu from "./DropdownMenu";
 
 export default class Navbar extends Component {
   state = { clicked: false };
@@ -14,9 +16,11 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo">
-          Selecta <i className="fa fa-heart"></i>
-        </h1>
+        <Link to="/">
+          <h1 className="navbar-logo">
+            Selecta <i className="fa fa-heart"></i>
+          </h1>
+        </Link>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -26,13 +30,14 @@ export default class Navbar extends Component {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a className={item.cName} href={item.url}>
+                <NavLink className={item.cName} to={item.url}>
                   {item.title}
-                </a>
+                </NavLink>
               </li>
             );
           })}
         </ul>
+        <DropdownMenu />
         <CartWidget />
         <Button>Sign Up</Button>
       </nav>

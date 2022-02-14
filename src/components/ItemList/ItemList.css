@@ -2,14 +2,16 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 10px;
-  padding-top: 90px;
+  padding-top: 80px;
 }
 
 .item-list {
-  padding-top: 290px;
+  padding-top: 750px;
 }
 
 h4 {
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }

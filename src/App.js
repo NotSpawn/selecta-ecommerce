@@ -6,12 +6,15 @@ import image1 from "./assets/images/slide-2.jpg";
 import image2 from "./assets/images/slide-1.jpg";
 import ItemlistContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div>
       <Navbar />
       <header>
+        <Home />
         <BackgroundSlider
           images={[image1, image2]}
           duration={5}
@@ -19,8 +22,17 @@ function App() {
         />
       </header>
       <main>
-        <ItemlistContainer greeting={"Treat Yourself"} />
-        <ItemDetailContainer />
+        <Routes>
+          <Route path="/" element={<ItemlistContainer space={600} />} />
+          <Route
+            path="/products/:productId"
+            element={<ItemDetailContainer />}
+          />
+          <Route
+            path="/category/:categoryName"
+            element={<ItemlistContainer />}
+          />
+        </Routes>
       </main>
     </div>
   );
