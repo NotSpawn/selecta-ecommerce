@@ -24,7 +24,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<ItemlistContainer space={600} />} />
+          <Route path="/" element={<ItemlistContainer />} />
           <Route
             path="/products/:productId"
             element={<ItemDetailContainer />}

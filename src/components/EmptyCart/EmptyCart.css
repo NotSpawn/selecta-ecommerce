@@ -1,0 +1,11 @@
+.fondo-lottie {
+  background-color: white;
+  width: 1200px;
+  height: 650px;
+  border-radius: 50px 50px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  gap: 50px;
+}

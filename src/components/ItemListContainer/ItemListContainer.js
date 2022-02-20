@@ -26,15 +26,17 @@ function ItemListContainer() {
   }, [categoryName]);
 
   return (
-    <div className="list-logo">
-      <div>
-        {productsList.length === 0 ? (
-          <p></p>
-        ) : (
-          <ItemList products={productsList} />
-        )}
+    <>
+      <div className="list-logo">
+        <div>
+          {productsList.length === 0 ? (
+            <p></p>
+          ) : (
+            <ItemList products={productsList} />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

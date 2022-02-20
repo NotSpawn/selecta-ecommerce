@@ -23,3 +23,7 @@
   color: rgb(253, 253, 253);
   z-index: 1;
 }
+
+.cart-items-count {
+  margin-left: 15px;
+}
