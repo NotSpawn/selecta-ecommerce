@@ -4,7 +4,7 @@ export const CartContext = createContext([]);
 
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
+  const products = cart;
   //add items to cart
 
   const addToCart = (newItemCount, product) => {
@@ -57,6 +57,7 @@ const CartContextProvider = ({ children }) => {
         subTotal,
         total,
         tax,
+        products,
       }}
     >
       {children}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Button.css";
+import { auth } from "../firebase";
 
 const STYLES = ["btn--primary", "btn--outline"];
 
@@ -18,7 +19,14 @@ export const Button = ({
 
   const checkbuttonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-  return (
+  return auth.currentUser ? (
+    <button
+      className={`btn ${checkbuttonStyle} ${checkbuttonSize}`}
+      onClick={() => auth.signOut()}
+    >
+      Sign Out
+    </button>
+  ) : (
     <button
       className={`btn ${checkbuttonStyle} ${checkbuttonSize}`}
       onClick={onClick}

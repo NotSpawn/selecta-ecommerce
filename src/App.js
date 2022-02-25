@@ -9,6 +9,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Cart from "./components/Cart/Cart";
+import AddItemContainer from "./components/AddItemContainer/AddItemContainer";
+import EditItemContainer from "./components/EditItemContainer/EditItemContainer";
 
 function App() {
   return (
@@ -34,6 +36,12 @@ function App() {
             element={<ItemlistContainer />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route exact path="/products/add" element={<AddItemContainer />} />
+          <Route
+            exact
+            path="/products/edit/:id"
+            element={<EditItemContainer />}
+          />
         </Routes>
       </main>
     </div>

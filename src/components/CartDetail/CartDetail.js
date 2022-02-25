@@ -1,18 +1,68 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./CartDetail.css";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase";
+import Lottie from "react-lottie";
+import animationData from "../../assets/animations/95029-success.json";
 
 function CartDetail() {
-  const { cart, ClearCart, tax, total, subTotal } = useContext(CartContext);
+  const { cart, products, ClearCart, tax, total, subTotal } =
+    useContext(CartContext);
+  const [success, setSuccess] = useState(false);
+  const [orderId, setOrderId] = useState("");
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const checkout = () => {
+    if (products.length === 0) {
+      alert("Cart is empty");
+      return;
+    }
+    const productsToBuy = products.map((product) => {
+      return {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        newItemCount: product.newItemCount,
+      };
+    });
+
+    const buyer = {
+      name: "Facundo Juarez",
+      phone: "25465418794",
+      email: "facundojuarez46@gmail.com",
+    };
+
+    const order = { buyer: buyer, products: productsToBuy, total: total };
+
+    addDoc(collection(db, "orders"), order)
+      .then((doc) => {
+        setOrderId(doc.id);
+        setSuccess(true);
+        console.log("products have been purchased", doc.id);
+      })
+      .catch((err) => {
+        console.log("something went wrong...", err);
+      });
+    ClearCart();
+  };
 
   return (
     <div className="card-detail">
       <div className="wrap">
         <header className="cart-header cf">
           <strong>Items in Your Cart</strong>
-          <span class="btn-nav" onClick={ClearCart}>
+          <span className="btn-nav" onClick={ClearCart}>
             Clear Cart
           </span>
         </header>
@@ -59,7 +109,9 @@ function CartDetail() {
         </div>
 
         <div className="cart-footer cf">
-          <span className="btn-nav">Checkout</span>
+          <span className="btn-nav" onClick={checkout}>
+            Checkout
+          </span>
           <span className="cont-shopping">
             <Link to="/">
               <i className="i-angle-left"></i>Continue Shopping
@@ -67,6 +119,13 @@ function CartDetail() {
           </span>
         </div>
       </div>
+      {success ? (
+        <div className="success">
+          <Lottie options={defaultOptions} height={150} width={150} />
+          <h1>Your purchase has been completed</h1>
+          <p>Purchase order number (id) : {orderId}</p>
+        </div>
+      ) : null}
     </div>
   );
 }

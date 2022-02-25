@@ -19,7 +19,12 @@ function CartItem({ product }) {
             </div>
           </div>
           <div className="item-block ib-qty">
-            <input type="text" value={product.newItemCount} className="qty" />
+            <input
+              type="text"
+              value={product.newItemCount}
+              className="qty"
+              onChange={(event) => this.inputChangedHandler(event)}
+            />
             <span className="price">
               <span>x</span> ${product.price}
             </span>

@@ -21,17 +21,18 @@ function ItemDetail({ product }) {
       <div className="card_right">
         <h3 className="title-product">{product.title}</h3>
         <p className="product-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
-          porttitor augue, quis interdum nisl. Curabitur non nisi felis. Quisque
-          ipsum tellus, molestie a bibendum id, tempor eget massa. Nunc lobortis
-          est eget nulla pellentesque, sed condimentum odio lobortis.
+          {product.description}, Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Fusce nec porttitor augue, quis interdum nisl.
+          Curabitur non nisi felis. Quisque ipsum tellus, molestie a bibendum
+          id, tempor eget massa. Nunc lobortis est eget nulla pellentesque, sed
+          condimentum odio lobortis.
         </p>
         <div className="card_footer">
           <span className="price">{product.price} $</span>
         </div>
         <div>
           {!itemTotal ? (
-            <ItemCount stock={10} initial={1} onAdd={onAddItem} />
+            <ItemCount stock={product.stock} initial={1} onAdd={onAddItem} />
           ) : (
             <Link to="/cart">
               <button className="addTo"> Go to Cart</button>

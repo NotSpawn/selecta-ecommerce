@@ -31,6 +31,7 @@ function ItemCount({ stock, initial, onAdd }) {
           className="quantity"
           name="quantity"
           value={counter}
+          onChange={(event) => this.inputChangedHandler(event)}
           type="number"
         />
         <button
