@@ -13,6 +13,11 @@ function CartDetail() {
     useContext(CartContext);
   const [success, setSuccess] = useState(false);
   const [orderId, setOrderId] = useState("");
+  const [buyer, setBuyer] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
 
   const defaultOptions = {
     loop: true,
@@ -21,6 +26,13 @@ function CartDetail() {
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
+  };
+
+  const handleChange = (e) => {
+    setBuyer({
+      ...buyer,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const checkout = () => {
@@ -37,11 +49,11 @@ function CartDetail() {
       };
     });
 
-    const buyer = {
-      name: "Facundo Juarez",
-      phone: "25465418794",
-      email: "facundojuarez46@gmail.com",
-    };
+    setBuyer({
+      name: buyer.name,
+      phone: buyer.phone,
+      email: buyer.email,
+    });
 
     const order = { buyer: buyer, products: productsToBuy, total: total };
 
@@ -55,6 +67,11 @@ function CartDetail() {
         console.log("something went wrong...", err);
       });
     ClearCart();
+    setBuyer({
+      name: "",
+      phone: "",
+      email: "",
+    });
   };
 
   return (
@@ -107,13 +124,38 @@ function CartDetail() {
             </p>
           </div>
         </div>
-
+        <div className="buyer-input">
+          <input
+            className="buy-input"
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={buyer.name}
+            onChange={handleChange}
+          />
+          <input
+            className="buy-input"
+            type="text"
+            placeholder="Phone"
+            name="phone"
+            value={buyer.phone}
+            onChange={handleChange}
+          />
+          <input
+            className="buy-input"
+            type="text"
+            placeholder="Email"
+            name="email"
+            value={buyer.email}
+            onChange={handleChange}
+          />
+        </div>
         <div className="cart-footer cf">
           <span className="btn-nav" onClick={checkout}>
             Checkout
           </span>
           <span className="cont-shopping">
-            <Link to="/">
+            <Link to="/" className="cont-shop">
               <i className="i-angle-left"></i>Continue Shopping
             </Link>
           </span>

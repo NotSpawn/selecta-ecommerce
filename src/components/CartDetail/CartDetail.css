@@ -21,6 +21,12 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  text-decoration: none;
+}
+
+.cont-shopping {
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .card-detail {
@@ -35,9 +41,20 @@ strong {
   width: 85%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 50px 0;
+}
+.title {
+  color: black;
+}
+.buyer-input {
+  display: flex;
+  justify-content: space-between;
 }
 
+.buy-input {
+  width: 250px;
+  font-size: 16px;
+}
 .success {
   position: absolute;
   top: 0;
@@ -49,6 +66,22 @@ strong {
   color: white;
 }
 
+.cont-shop {
+  display: inline-block;
+  font-size: 0.9em;
+  padding: 12px 30px;
+  background: #3acbf7;
+  color: #232323;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.cont-shop:hover {
+  opacity: 0.8;
+}
 .btn-nav {
   display: inline-block;
   font-size: 0.9em;

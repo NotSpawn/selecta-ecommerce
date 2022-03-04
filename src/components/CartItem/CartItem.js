@@ -14,7 +14,7 @@ function CartItem({ product }) {
             <div className="ib-info-meta">
               <Link to={`/products/${product.id}`}>
                 <span className="title">{product.title} </span>
-                <span className="itemno">#{product.id}37289</span>
+                <span className="itemno">#{product.id}</span>
               </Link>
             </div>
           </div>

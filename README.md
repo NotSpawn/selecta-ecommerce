@@ -2,11 +2,13 @@
 
 #General Info
 
-front-end: Reactjs, react-background-slider,react-navbar-dropdown,react-router-dom.
+front-end: Reactjs, react-background-slider,react-navbar-dropdown,react-router-dom,react-scroll-into-view, Lottie.
+back-end : firebase.
 
-## Future Features
+## Features
 
 - Home (List products)
+- Add & Edit products
 - Detail products
 - Cart
 - Login / Register
